@@ -2,3 +2,14 @@ Pseudocode:
 
 1. Creating a prompt that will as the user to guess a letter
 2.Creating a word bank. An array from which a word will randomly be chosen. This will be an array and it will be exported to other files
+3.Creating letter constructor. 
+Logic:
+Initially, all letters should display a dash
+Then user guesses the letter
+If the letter is correct, replace the dash with the letter
+If the letter is incorrect, the dash is mantained
+4. Creating the word constructor
+Will randomly select a word from the array
+Push it to the array of chosen word
+Split the array 
+Word: Used to create an object representing the current word the user is attempting to guess. This should contain word specific logic and data.
