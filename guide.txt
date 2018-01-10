@@ -1,3 +1,4 @@
 Pseudocode:
 
 1. Creating a prompt that will as the user to guess a letter
+2.Creating a word bank. An array from which a word will randomly be chosen. This will be an array and it will be exported to other files

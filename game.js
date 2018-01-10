@@ -11,8 +11,9 @@ inquirer.prompt([
 	message: " Guess a letter!"
 	},
 	]).then(answers => {
+
 	//checking if inquirer and chalk packages function
     // console.log(chalk.cyan(answers.guess + "\n"));
-});
 
+});
 
