@@ -1,0 +1,28 @@
+{
+  "name": "hangman",
+  "version": "1.0.0",
+  "description": "Hangman Gmae using NodeJS, CLI",
+  "main": "game.js",
+  "scripts": {
+    "test": "test this"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ruha-RP/Hangman.git"
+  },
+  "keywords": [
+    "hangman",
+    "nodejs",
+    "cli"
+  ],
+  "author": "Ruha Peera",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ruha-RP/Hangman/issues"
+  },
+  "homepage": "https://github.com/Ruha-RP/Hangman#readme",
+  "dependencies": {
+    "chalk": "^2.3.0",
+    "inquirer": "^5.0.0"
+  }
+}
