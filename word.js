@@ -5,6 +5,14 @@ var computerChoice = require("./bank.js");
 //checking
 console.log("TEST computerChoice is: " + computerChoice);
 
+// Word constructor
+var Word = function() {
+
+
+};
+
+module.exports = Word;
+
 
 //create a variable that will hold the random word chosen by the computer
 

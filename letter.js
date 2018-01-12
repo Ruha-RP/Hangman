@@ -5,4 +5,4 @@ var Letter = function() {
 
 };
 
-module.exports = Letter;
+module.exports = Lettero

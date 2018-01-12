@@ -9,6 +9,5 @@ var computerChoice = wordBank[Math.floor((Math.random() * wordBank.length))];
 //checking if randomization works
 // console.log(computerChoice);
 
-
 //exporting the object so it can be utillized by other files
 module.exports = computerChoice;

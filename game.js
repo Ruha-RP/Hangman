@@ -9,15 +9,20 @@ var computerChoice = require('./bank.js');
 // console.log(computerChoice);
 
 //requiring the word file
-var word = require("./word.js");
+var Word = require("./word.js");
 
 //checking if the word gets split
 var individualLetterArray = computerChoice.split("");
 console.log("TEST array:" + individualLetterArray);
 
-
 //global variable that can be accessed later
 var checkedLetterIndex;
+
+//creating an empty array that will hold the letters that have been guessed already
+var correctGuesses = [];
+
+//keeping track of number of guesses
+var guessesLeft = 10;
 
 
 //function to start the game
@@ -34,6 +39,7 @@ function playGame() {
 
 	//checking if inquirer and chalk packages function
 	// console.log(chalk.cyan(answers.guess + "\n"));
+
 			
 		//this function will find the index of each letter in the split word and find the index of the user guess against it
 		function checkLetter() {
@@ -51,6 +57,17 @@ function playGame() {
 			console.log(chalk.red("\n---------\n" + "INCORRECT!\n" + "---------"));
 			console.log("Try again!\n");
 
+			//decrements the number of guesses
+			guessesLeft--;
+			console.log("Guesses Remaining: " + guessesLeft);
+
+			//if statement to end game when the guesses reach 0
+			if (guessesLeft === 0) {
+
+				//logs the following message
+				console.log(chalk.bgRed("\n------------------\n" + "    YOU LOSE!     \n" + "------------------\n"));
+			}
+
 			//runs the function again, so user can choose another letter
 			playGame();
 			
@@ -59,6 +76,15 @@ function playGame() {
 		else {
 
 			console.log(chalk.green("\n---------\n" + "CORRECT!\n" + "---------"));
+
+			//pushing correctly guessed letter into the empty array
+			correctGuesses.push(answers.guess);
+			//checking if array is being populated
+			console.log(correctGuesses);
+			//removing the correct letter from the individualLetterArray
+
+			//showing the number of guesses left
+			console.log("Guesses remaining: " + guessesLeft);
 
 			//runs the function again, so user can choose another letter
 			playGame();
