@@ -24,9 +24,20 @@ var correctGuesses = [];
 //keeping track of number of guesses
 var guessesLeft = 10;
 
+//the reset game function
+function resetGame() {
+	guessesLeft = 10;
+	individualLetterArray = computerChoice.split("");
+	console.log(individualLetterArray);
+}
+
 
 //function to start the game
 function playGame() {
+
+
+		
+		
 
 	//prompting the user to select a letter
 	inquirer.prompt([
@@ -39,7 +50,6 @@ function playGame() {
 
 	//checking if inquirer and chalk packages function
 	// console.log(chalk.cyan(answers.guess + "\n"));
-
 			
 		//this function will find the index of each letter in the split word and find the index of the user guess against it
 		function checkLetter() {
@@ -49,6 +59,7 @@ function playGame() {
 
 		//calling the function
 		checkLetter();
+
 
 		//checking if it the letters match. An index of -1 indicates that the letter was not found
 		if (checkedLetterIndex === -1) {
@@ -66,7 +77,11 @@ function playGame() {
 
 				//logs the following message
 				console.log(chalk.bgRed("\n------------------\n" + "    YOU LOSE!     \n" + "------------------\n"));
+
+				//instruction for resetting game
+				console.log("To restart, run this: 1) Ctrl+C 2)node game.js");
 			}
+			
 
 			//runs the function again, so user can choose another letter
 			playGame();
@@ -90,8 +105,9 @@ function playGame() {
 			playGame();
 
 		}
-
+			
 	});
+
 }
 
 //this will run the moment the user nodes the file (starts the game)
