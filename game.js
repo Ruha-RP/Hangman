@@ -78,13 +78,14 @@ function playGame() {
 				//logs the following message
 				console.log(chalk.bgRed("\n------------------\n" + "    YOU LOSE!     \n" + "------------------\n"));
 
-				//instruction for resetting game
-				console.log("To restart, run this: 1) Ctrl+C 2)node game.js");
 			}
 			
+			else {
 
 			//runs the function again, so user can choose another letter
 			playGame();
+
+			}
 			
 		}
 
@@ -94,15 +95,27 @@ function playGame() {
 
 			//pushing correctly guessed letter into the empty array
 			correctGuesses.push(answers.guess);
+
 			//checking if array is being populated
 			console.log(correctGuesses);
+
 			//removing the correct letter from the individualLetterArray
 
 			//showing the number of guesses left
 			console.log("Guesses remaining: " + guessesLeft);
 
-			//runs the function again, so user can choose another letter
-			playGame();
+			//if /else to check whether the user has won
+			if (correctGuesses.length === individualLetterArray.length) {
+
+				//informs of success
+				console.log(chalk.bgGreen("\n------------------\n" + "    YOU WIN!      \n" + "------------------\n"));
+			}
+
+			else {
+
+				//runs the function again, so user can choose another letter
+				playGame();	
+			}
 
 		}
 			
