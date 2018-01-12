@@ -15,6 +15,22 @@ var Word = require("./word.js");
 var individualLetterArray = computerChoice.split("");
 console.log("TEST array:" + individualLetterArray);
 
+//setting a variable that will determine whether the letter is displayed or not
+var displayLetter = false;
+
+//new array to hold blanks and correct letter
+var blanksAndLetters = [];
+
+//this will loop through the array
+for (var j = 0; j < individualLetterArray.length; j++) {
+
+	blanksAndLetters.push("_");
+
+}
+
+//logging the blanks
+console.log("blanksAndLetters Array: " + blanksAndLetters);
+
 //global variable that can be accessed later
 var checkedLetterIndex;
 
@@ -44,11 +60,13 @@ function playGame() {
 		//this function will find the index of each letter in the split word and find the index of the user guess against it
 		function checkLetter() {
 			checkedLetterIndex = individualLetterArray.indexOf(answers.guess);
-			// console.log(checkedLetterIndex);
+			console.log(checkedLetterIndex);
 		}
 
 		//calling the function
 		checkLetter();
+
+		//===INCORRECT GUESS===
 
 		//checking if it the letters match. An index of -1 indicates that the letter was not found
 		if (checkedLetterIndex === -1) {
@@ -77,11 +95,13 @@ function playGame() {
 			
 		}
 
+		//===CORRECT GUESS===
+
 		else {
 
 			console.log(chalk.green("\n---------\n" + "CORRECT!\n" + "---------"));
 
-			//if the user has guesed the letter already, the letter isn't pushed into the array
+			//if the user has guesed the letter already, the letter isn't pushed into the array <BUG>
 			if (correctGuesses.indexOf(answers.guess) > -1) {
 
 				//informs user
@@ -89,6 +109,7 @@ function playGame() {
 			}
 
 			else {
+
 				//pushing correctly guessed letter into the empty array
 				correctGuesses.push(answers.guess);
 			};
@@ -101,7 +122,7 @@ function playGame() {
 			//showing the number of guesses left
 			console.log("Guesses remaining: " + guessesLeft);
 
-			//if /else to check whether the user has won
+			//if /else to check whether the user has won <BUG>
 			if (correctGuesses.length === individualLetterArray.length) {
 
 				//informs of success
