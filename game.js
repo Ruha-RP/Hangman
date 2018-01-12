@@ -25,19 +25,9 @@ var correctGuesses = [];
 var guessesLeft = 10;
 
 //the reset game function
-function resetGame() {
-	guessesLeft = 10;
-	individualLetterArray = computerChoice.split("");
-	console.log(individualLetterArray);
-}
 
-
-//function to start the game
+//function to start the game, this is for the selected word only
 function playGame() {
-
-
-		
-		
 
 	//prompting the user to select a letter
 	inquirer.prompt([
@@ -54,16 +44,14 @@ function playGame() {
 		//this function will find the index of each letter in the split word and find the index of the user guess against it
 		function checkLetter() {
 			checkedLetterIndex = individualLetterArray.indexOf(answers.guess);
-			console.log(checkedLetterIndex);
+			// console.log(checkedLetterIndex);
 		}
 
 		//calling the function
 		checkLetter();
 
-
 		//checking if it the letters match. An index of -1 indicates that the letter was not found
 		if (checkedLetterIndex === -1) {
-
 
 			console.log(chalk.red("\n---------\n" + "INCORRECT!\n" + "---------"));
 			console.log("Try again!\n");
@@ -93,8 +81,17 @@ function playGame() {
 
 			console.log(chalk.green("\n---------\n" + "CORRECT!\n" + "---------"));
 
-			//pushing correctly guessed letter into the empty array
-			correctGuesses.push(answers.guess);
+			//if the user has guesed the letter already, the letter isn't pushed into the array
+			if (correctGuesses.indexOf(answers.guess) > -1) {
+
+				//informs user
+				console.log("You've guessed this letter already!");
+			}
+
+			else {
+				//pushing correctly guessed letter into the empty array
+				correctGuesses.push(answers.guess);
+			};
 
 			//checking if array is being populated
 			console.log(correctGuesses);
@@ -115,9 +112,9 @@ function playGame() {
 
 				//runs the function again, so user can choose another letter
 				playGame();	
-			}
+			};
 
-		}
+		};
 			
 	});
 
